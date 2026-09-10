@@ -186,14 +186,7 @@ img { display: block; max-width: 100%; }
 .btn-outline.dark { border-color: var(--border); color: var(--black); }
 .btn-outline.dark:hover { border-color: var(--blue); background: var(--blue-pastel); }
 
-/* ── SECTION LABEL / HEADINGS ── */
-.section-label {
-  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--blue);
-  display: flex; align-items: center; gap: 0.6rem;
-  margin-bottom: 1.5rem; justify-content: center;
-}
-.section-label::before { content: ''; width: 24px; height: 1px; background: var(--blue); }
+/* ── HEADINGS ── */
 .big-heading {
   font-family: var(--font-serif); font-style: italic; font-weight: 380;
   font-size: clamp(2.2rem, 3.6vw, 3.2rem);
@@ -248,8 +241,6 @@ img { display: block; max-width: 100%; }
 
 /* ── SUBSCRIBE ── */
 .subscribe-section { padding: 5rem 3rem; background: var(--black); text-align: center; }
-.subscribe-section .section-label { color: var(--coral-bright); }
-.subscribe-section .section-label::before { background: var(--coral-bright); }
 .subscribe-sub { font-size: 0.92rem; color: rgba(255,255,255,0.5); margin-top: 1rem; margin-bottom: 3rem; }
 .platform-cards {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; max-width: 640px; margin: 0 auto;
@@ -342,7 +333,6 @@ img { display: block; max-width: 100%; }
 
 <!-- INTRO -->
 <section class="intro-section">
-  <div class="section-label reveal">The Podcast</div>
   <h2 class="big-heading reveal d1">On <em>Beyond the Code</em>, Yitzy Hammer goes backstage with the founders, regulators, and legal minds shaping the frontier of crypto and emerging tech.</h2>
   <p class="reveal d2">Each conversation digs into two things: the origin story that got them here, and the hard questions no one has clean answers to yet — where the technology is actually heading, who's writing the rules, and what it takes to build responsibly when the ground keeps shifting.</p>
   <p class="reveal d3">Over 100 episodes in, it's become a home for the people actually building, regulating, and enforcing the future of digital assets.</p>
@@ -355,7 +345,6 @@ img { display: block; max-width: 100%; }
 
 <!-- EPISODES -->
 <section class="episodes-section">
-  <div class="section-label reveal">Fresh Off The Mic</div>
   <h2 class="big-heading reveal d1">Popular <em>Episodes.</em></h2>
   <div class="ep-list reveal d2">
     <a href="https://podcasts.apple.com/in/podcast/58-yitzy-hammer-samuel-goldfaden-the-future-of/id1578287932?i=1000576186326" target="_blank" class="ep-row">
@@ -394,7 +383,6 @@ img { display: block; max-width: 100%; }
 
 <!-- SUBSCRIBE -->
 <section class="subscribe-section" id="subscribe">
-  <div class="section-label reveal">Tune In</div>
   <h2 class="big-heading on-dark reveal d1">Subscribe on Your <em>Favorite Platform.</em></h2>
   <p class="subscribe-sub reveal d2">New episodes every week</p>
   <div class="platform-cards reveal d3">
@@ -426,7 +414,6 @@ img { display: block; max-width: 100%; }
     <div class="host-photo"><img src="images/podcast_01.jpg" alt="Yitzy Hammer"></div>
   </div>
   <div class="host-text reveal d1">
-    <div class="section-label" style="justify-content:flex-start">Your Host</div>
     <h2>Yitzy Hammer —<br><em>lawyer, builder, degen.</em></h2>
     <p>Yitzy brings a unique perspective to every episode: he's not just a legal commentator — he's an active participant in the crypto space, with skin in the game across NFT projects, DAOs, and Web3 initiatives.</p>
     <p>That means conversations go beyond surface-level legal takes. Yitzy and his guests get into the real issues — the grey areas, the regulatory uncertainty, the things that keep founders up at night.</p>

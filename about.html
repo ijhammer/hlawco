@@ -178,15 +178,6 @@ img { display: block; max-width: 100%; }
   padding: 2rem 4rem 4.5rem 3rem;
   max-width: 680px;
 }
-.hero-eyebrow {
-  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.25em;
-  text-transform: uppercase; color: var(--blue-bright);
-  display: flex; align-items: center; gap: 0.6rem;
-  margin-bottom: 1rem;
-}
-.hero-eyebrow::before {
-  content: ''; width: 30px; height: 1px; background: var(--blue-bright);
-}
 .hero-h1 {
   font-family: var(--font-serif); font-style: italic; font-weight: 400;
   font-size: clamp(2.8rem, 5vw, 4.8rem);
@@ -215,14 +206,7 @@ img { display: block; max-width: 100%; }
 }
 .btn-blue:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(240,32,140,0.32); }
 
-/* ── SECTION LABEL / HEADINGS ── */
-.section-label {
-  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--blue);
-  display: flex; align-items: center; gap: 0.6rem;
-  margin-bottom: 1.5rem;
-}
-.section-label::before { content: ''; width: 24px; height: 1px; background: var(--blue); }
+/* ── HEADINGS ── */
 .big-heading {
   font-family: var(--font-serif); font-style: italic; font-weight: 380;
   font-size: clamp(2rem, 3.2vw, 2.8rem);
@@ -314,7 +298,6 @@ img { display: block; max-width: 100%; }
   <img class="hero-photo" src="images/about_01.jpg" alt="Yitzy Hammer speaking">
   <div class="hero-photo-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow reveal">Founder &amp; Principal</div>
     <h1 class="hero-h1 reveal d1">Yitzy Hammer<br><em>Esq.</em></h1>
     <p class="hero-desc reveal d2">Emerging technology lawyer. Podcast host. Advisor to founders and entrepreneurs since 2013 — across hi-tech, blockchain, and crypto — not just as a lawyer, but as a participant and investor.</p>
     <div class="cred-strip reveal d3">
@@ -364,7 +347,6 @@ img { display: block; max-width: 100%; }
 <div class="conf-section">
   <div class="conf-header">
     <div>
-      <div class="section-label reveal">In the Field</div>
       <h2 class="big-heading reveal d1">Always <em>in the room.</em></h2>
     </div>
     <div class="conf-header-right">
