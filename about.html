@@ -6,7 +6,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -23,8 +23,8 @@
   --gray: #6E6D74;
   --gray-light: #E3E3E8;
   --border: #E7E7EC;
-  --font: 'Poppins', sans-serif;
-  --font-serif: 'Fraunces', serif;
+  --font: 'Montserrat', sans-serif;
+  --font-serif: 'Montserrat', sans-serif;
 }
 html { scroll-behavior: smooth; }
 body {
@@ -106,7 +106,7 @@ body {
 
 /* ── UTILS ── */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
-img { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; filter: grayscale(100%); }
 
 /* ── WAVE DIVIDERS ── */
 .wave { display: block; width: 100%; line-height: 0; }
@@ -122,15 +122,6 @@ img { display: block; max-width: 100%; }
 .reveal.d3 { transition-delay: 0.3s; }
 .reveal.d4 { transition-delay: 0.4s; }
 .reveal.vis { opacity: 1; transform: none; }
-
-/* rotating badge */
-.rotating-badge { position: relative; width: 148px; height: 148px; margin: 1rem auto; }
-.badge-spin { width: 100%; height: 100%; animation: spin 22s linear infinite; }
-.badge-center {
-  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem; color: var(--coral);
-}
-@keyframes spin { to { transform: rotate(360deg); } }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
@@ -164,7 +155,7 @@ img { display: block; max-width: 100%; }
   position: absolute; inset: 0;
   width: 100%; height: 100%; object-fit: cover; object-position: 32% 18%;
   display: block;
-  filter: grayscale(10%);
+  filter: grayscale(100%);
 }
 .hero-photo-overlay {
   position: absolute; inset: 0;
@@ -256,10 +247,10 @@ img { display: block; max-width: 100%; }
 }
 .photo-cell img {
   width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.22,1,0.36,1), filter 0.5s;
-  filter: grayscale(20%);
+  transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  filter: grayscale(100%);
 }
-.photo-cell-wrap:hover .photo-cell img { transform: scale(1.05); filter: grayscale(0%); }
+.photo-cell-wrap:hover .photo-cell img { transform: scale(1.05); }
 .photo-cell-label {
   position: absolute; bottom: 0; left: 0; right: 0;
   padding: 1rem 1.2rem;
@@ -309,15 +300,6 @@ img { display: block; max-width: 100%; }
     <div class="reveal d4">
       <a href="index.html#contact" class="btn-blue">Work With Yitzy →</a>
     </div>
-  </div>
-  <div class="rotating-badge reveal d4" style="position:absolute;bottom:5rem;right:3rem;z-index:2;margin:0">
-    <svg viewBox="0 0 200 200" class="badge-spin">
-      <defs><path id="circlePath2" d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0"/></defs>
-      <text font-family="Poppins" font-size="11" font-weight="600" letter-spacing="1.8" fill="var(--blue-bright)">
-        <textPath href="#circlePath2" startOffset="0%">FOUNDER &amp; PRINCIPAL &#8226; HAMMER &amp; CO. &#8226; FOUNDER &amp; PRINCIPAL &#8226; HAMMER &amp; CO. &#8226; </textPath>
-      </text>
-    </svg>
-    <div class="badge-center">✦</div>
   </div>
   <div class="wave" style="position:absolute;bottom:-1px;left:0;width:100%;background:transparent;z-index:3">
     <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,50 C360,120 1080,-20 1440,50 L1440,100 L0,100 Z" fill="var(--white)"/></svg>
