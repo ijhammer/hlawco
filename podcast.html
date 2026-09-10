@@ -6,20 +6,25 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --white: #ffffff;
-  --black: #0a0a0a;
-  --off: #f5f5f3;
-  --blue: #C4A882;
-  --blue-bright: #C4A882;
-  --blue-glow: rgba(196,168,130,0.15);
-  --gray: #888888;
-  --gray-light: #e8e8e8;
-  --border: #e0e0e0;
-  --font: 'Montserrat', sans-serif;
+  --white: #FFFFFF;
+  --black: #131216;
+  --off: #F1F1F4;
+  --blue: #F0208C;
+  --blue-bright: #FA5DAE;
+  --blue-pastel: #FBD4EA;
+  --blue-glow: rgba(240,32,140,0.15);
+  --coral: #7C3AED;
+  --coral-bright: #A374F5;
+  --coral-pastel: #E6DAFB;
+  --gray: #6E6D74;
+  --gray-light: #E3E3E8;
+  --border: #E7E7EC;
+  --font: 'Poppins', sans-serif;
+  --font-serif: 'Fraunces', serif;
 }
 html { scroll-behavior: smooth; }
 body {
@@ -27,64 +32,42 @@ body {
   background: var(--white);
   color: var(--black);
   overflow-x: hidden;
-  cursor: none;
 }
-
-/* ── CUSTOM CURSOR ── */
-.cursor {
-  width: 10px; height: 10px;
-  background: var(--blue);
-  border-radius: 50%;
-  position: fixed; top: 0; left: 0;
-  pointer-events: none; z-index: 9999;
-  transform: translate(-50%,-50%);
-  transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
-  mix-blend-mode: normal;
-}
-.cursor-ring {
-  width: 36px; height: 36px;
-  border: 1.5px solid var(--blue);
-  border-radius: 50%;
-  position: fixed; top: 0; left: 0;
-  pointer-events: none; z-index: 9998;
-  transform: translate(-50%,-50%);
-  transition: transform 0.12s ease, width 0.3s, height 0.3s, opacity 0.3s;
-  opacity: 0.5;
-}
-body.cursor-hover .cursor { width: 16px; height: 16px; background: var(--blue-bright); }
-body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.25; }
 
 /* ── NAV ── */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 500;
   display: flex; justify-content: space-between; align-items: center;
   padding: 0 3rem; height: 72px;
-  background: rgba(255,255,255,0.95);
+  background: rgba(251,248,242,0.35);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
-.nav.scrolled { border-color: var(--border); box-shadow: 0 1px 30px rgba(0,0,0,0.06); }
+.nav.scrolled { border-color: rgba(23,20,35,0.06); box-shadow: 0 1px 24px rgba(23,20,35,0.06); }
 .nav-logo {
-  font-size: 1rem; font-weight: 800; letter-spacing: -0.02em;
-  color: var(--black); text-decoration: none; text-transform: uppercase;
+  font-family: var(--font-serif); font-style: italic; font-weight: 500;
+  font-size: 1.3rem; letter-spacing: -0.01em;
+  color: var(--black); text-decoration: none;
 }
 .nav-logo span { color: var(--blue); }
-.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+.nav-links { display: flex; gap: 2.3rem; list-style: none; align-items: center; }
 .nav-links a {
-  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--black); text-decoration: none;
+  font-size: 0.82rem; font-weight: 500;
+  color: var(--black); text-decoration: none;
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--blue); }
 .nav-degen {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--white);
-  background: var(--blue); padding: 0.55rem 1.3rem;
-  text-decoration: none; transition: background 0.2s, transform 0.2s;
+  font-size: 0.75rem; font-weight: 600;
+  color: var(--white);
+  background: linear-gradient(120deg, var(--blue), var(--coral));
+  padding: 0.6rem 1.3rem; border-radius: 999px;
+  text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(94,124,226,0.25);
 }
-.nav-degen:hover { background: var(--blue-bright); transform: translateY(-1px); }
+.nav-degen:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(232,130,90,0.3); }
 
 /* ── FOOTER ── */
 .footer {
@@ -99,8 +82,9 @@ body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.25; }
   margin-bottom: 2.5rem;
 }
 .footer-logo {
-  font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em;
-  text-transform: uppercase; color: var(--white); display: block; margin-bottom: 1rem;
+  font-family: var(--font-serif); font-style: italic; font-weight: 500;
+  font-size: 1.5rem; letter-spacing: -0.01em;
+  color: var(--white); display: block; margin-bottom: 1rem;
 }
 .footer-logo span { color: var(--blue); }
 .footer-brand p { font-size: 0.82rem; line-height: 1.8; max-width: 300px; }
@@ -113,7 +97,7 @@ body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.25; }
   display: block; font-size: 0.82rem; color: rgba(255,255,255,0.45);
   text-decoration: none; margin-bottom: 0.6rem; transition: color 0.2s;
 }
-.footer-col a:hover { color: var(--blue); }
+.footer-col a:hover { color: var(--blue-bright); }
 .footer-bottom {
   max-width: 1200px; margin: 0 auto;
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
@@ -124,6 +108,10 @@ body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.25; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
 img { display: block; max-width: 100%; }
 
+/* ── WAVE DIVIDERS ── */
+.wave { display: block; width: 100%; line-height: 0; }
+.wave svg { display: block; width: 100%; height: 70px; }
+
 /* ── SCROLL ANIMATIONS ── */
 .reveal {
   opacity: 0; transform: translateY(40px);
@@ -133,21 +121,8 @@ img { display: block; max-width: 100%; }
 .reveal.d2 { transition-delay: 0.2s; }
 .reveal.d3 { transition-delay: 0.3s; }
 .reveal.d4 { transition-delay: 0.4s; }
-.reveal.d5 { transition-delay: 0.5s; }
 .reveal.vis { opacity: 1; transform: none; }
 
-/* line reveal */
-.line-reveal {
-  overflow: hidden; display: block;
-}
-.line-reveal span {
-  display: block;
-  transform: translateY(110%);
-  transition: transform 0.9s cubic-bezier(0.22,1,0.36,1);
-}
-.line-reveal.vis span { transform: translateY(0); }
-
-/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .nav { padding: 0 1.5rem; }
   .nav-links { display: none; }
@@ -160,168 +135,179 @@ img { display: block; max-width: 100%; }
 .nav-social-icons { display:flex; gap:0.9rem; align-items:center; }
 .nav-social-link { color:var(--black); opacity:0.5; transition:opacity 0.2s, color 0.2s; display:flex; align-items:center; }
 .nav-social-link:hover { opacity:1; color:var(--blue); }
-.footer-social-icons { display:flex; gap:1rem; align-items:center; margin-bottom:0.5rem; }
-.footer-social-icons a { color:rgba(255,255,255,0.4); transition:color 0.2s; display:flex; }
-.footer-social-icons a:hover { color:var(--white); }
+.footer-social-icons { display:flex; gap:0.5rem; align-items:center; margin-bottom:0.5rem; }
+.footer-social-icons a { color:rgba(255,255,255,0.4); padding:0.4rem; border-radius:8px; transition:color 0.2s, background 0.2s; display:flex; }
+.footer-social-icons a:hover { color:var(--white); background:rgba(255,255,255,0.08); }
 </style>
 <style>
-.pod-hero {
-  min-height: 85vh; display: grid; grid-template-columns: 1fr 1fr;
-  padding-top: 72px; background: var(--black);
-  border-bottom: 1px solid #222;
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 72px;
+  overflow: hidden;
+  background: var(--black);
 }
-.pod-hero-left {
-  padding: 6rem 4rem 6rem 3rem; border-right: 1px solid #222;
-  display: flex; flex-direction: column; justify-content: center;
+.hero-photo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; object-position: center 25%;
+  display: block;
 }
-.pod-hero-right {
-  padding: 6rem 3rem 6rem 4rem;
-  display: flex; flex-direction: column; justify-content: center;
-  background: #0a0a0a;
+.hero-photo-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(19,18,22,0.96) 0%, rgba(19,18,22,0.5) 38%, rgba(19,18,22,0.05) 70%, rgba(19,18,22,0) 100%);
+  pointer-events: none;
 }
-.pod-label {
-  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em;
+.hero-content { position: relative; z-index: 2; padding: 0 3rem 3.5rem; width: 100%; text-align: center; }
+.hero-tagline {
+  font-size: 0.95rem; font-weight: 300; line-height: 1.7;
+  color: rgba(251,248,242,0.85); max-width: 560px; margin: 0 auto 2rem;
+}
+.hero-ctas { display: flex; align-items: center; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
+.btn-blue {
+  font-family: var(--font); font-size: 0.82rem; font-weight: 600;
+  background: linear-gradient(120deg, var(--coral), var(--blue)); color: var(--white); border-radius: 999px;
+  padding: 1rem 2rem; text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-block; box-shadow: 0 6px 18px rgba(240,32,140,0.25);
+  border: none;
+}
+.btn-blue:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(240,32,140,0.32); }
+.btn-outline {
+  font-family: var(--font); font-size: 0.82rem; font-weight: 600;
+  border: 1.5px solid rgba(251,248,242,0.35); color: var(--white); border-radius: 999px;
+  padding: 1rem 2rem; text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s, background 0.2s;
+  display: inline-block;
+}
+.btn-outline:hover { border-color: var(--blue-bright); background: rgba(240,32,140,0.15); transform: translateY(-2px); }
+.btn-outline.dark { border-color: var(--border); color: var(--black); }
+.btn-outline.dark:hover { border-color: var(--blue); background: var(--blue-pastel); }
+
+/* ── SECTION LABEL / HEADINGS ── */
+.section-label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--blue);
   display: flex; align-items: center; gap: 0.6rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem; justify-content: center;
 }
-.pod-label::before { content: ''; width: 24px; height: 1px; background: var(--blue); }
-.pod-hero h1 {
-  font-size: clamp(3.5rem, 7vw, 7rem);
-  font-weight: 800; letter-spacing: -0.04em; line-height: 0.9;
-  color: var(--white); margin-bottom: 1.5rem;
+.section-label::before { content: ''; width: 24px; height: 1px; background: var(--blue); }
+.big-heading {
+  font-family: var(--font-serif); font-style: italic; font-weight: 380;
+  font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+  line-height: 1.12; letter-spacing: -0.01em;
+  color: var(--black); text-align: center;
 }
-.pod-hero h1 em { font-style: italic; font-weight: 300; color: var(--blue); display: block; }
-.pod-hero p {
-  font-size: 0.9rem; font-weight: 300; line-height: 1.9;
-  color: rgba(255,255,255,0.4); max-width: 420px; margin-bottom: 2rem;
-}
-.platform-links { display: flex; flex-direction: column; gap: 0; }
-.platform-link {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.1rem 0; border-bottom: 1px solid #222;
-  text-decoration: none; color: rgba(255,255,255,0.5);
-  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em;
-  transition: color 0.2s;
-}
-.platform-link:hover { color: var(--blue); }
-.platform-link span { font-size: 0.9rem; }
+.big-heading em { font-style: italic; font-weight: 500; color: var(--blue); }
+.big-heading.on-dark { color: var(--white); }
+.big-heading.on-dark em { color: var(--blue-bright); }
 
-/* waveform */
-.waveform {
-  display: flex; align-items: center; gap: 3px;
-  height: 60px; margin-bottom: 2rem;
+/* ── INTRO ── */
+.intro-section { padding: 5rem 3rem; text-align: center; }
+.intro-section .big-heading { max-width: 900px; margin: 0 auto 1.5rem; }
+.intro-section p { font-size: 0.95rem; font-weight: 300; line-height: 1.9; color: var(--gray); max-width: 700px; margin: 0 auto 1rem; }
+.mosaic-row {
+  display: flex; justify-content: center; align-items: center; gap: 1.5rem;
+  margin-top: 3rem; flex-wrap: wrap;
 }
-.w-bar {
-  width: 3px; background: var(--blue); border-radius: 2px;
-  animation: wv 1.4s ease-in-out infinite;
-  opacity: 0.7;
+.photo-cell-wrap {
+  padding: 6px; border-radius: 22px; transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
 }
-.w-bar:nth-child(1){height:20px;animation-delay:0s}
-.w-bar:nth-child(2){height:40px;animation-delay:0.1s}
-.w-bar:nth-child(3){height:55px;animation-delay:0.2s}
-.w-bar:nth-child(4){height:35px;animation-delay:0.3s}
-.w-bar:nth-child(5){height:50px;animation-delay:0.4s}
-.w-bar:nth-child(6){height:25px;animation-delay:0.3s}
-.w-bar:nth-child(7){height:45px;animation-delay:0.2s}
-.w-bar:nth-child(8){height:60px;animation-delay:0.1s}
-.w-bar:nth-child(9){height:30px;animation-delay:0s}
-.w-bar:nth-child(10){height:50px;animation-delay:0.15s}
-.w-bar:nth-child(11){height:20px;animation-delay:0.25s}
-.w-bar:nth-child(12){height:42px;animation-delay:0.35s}
-@keyframes wv {
-  0%,100%{transform:scaleY(1);opacity:0.4}
-  50%{transform:scaleY(0.3);opacity:1}
-}
-.pod-stats {
-  display: flex; flex-direction: column; gap: 0;
-}
-.pod-stat {
-  display: flex; align-items: center; gap: 1.5rem;
-  padding: 1.5rem 0; border-bottom: 1px solid #222;
-}
-.pod-stat-n {
-  font-size: 2.2rem; font-weight: 800; letter-spacing: -0.04em;
-  color: var(--blue); min-width: 90px; line-height: 1;
-}
-.pod-stat-l {
-  font-size: 0.75rem; font-weight: 400; color: rgba(255,255,255,0.35); line-height: 1.6;
-}
+.photo-cell-wrap:nth-child(1) { background: linear-gradient(135deg, var(--blue), var(--blue-bright)); transform: rotate(-3deg); }
+.photo-cell-wrap:nth-child(2) { background: linear-gradient(135deg, var(--coral), var(--coral-bright)); transform: rotate(2deg); }
+.photo-cell-wrap:nth-child(3) { background: linear-gradient(135deg, var(--blue), var(--coral)); transform: rotate(-2deg); }
+.photo-cell-wrap:hover { transform: rotate(0deg) scale(1.03); }
+.photo-cell { width: 220px; aspect-ratio: 4/3; overflow: hidden; border-radius: 17px; background: var(--white); }
+.photo-cell:nth-of-type(2) { width: 260px; }
+.photo-cell img { width: 100%; height: 100%; object-fit: cover; }
 
-.ep-section {
-  border-bottom: 1px solid var(--border);
-}
-.ep-header {
-  display: grid; grid-template-columns: 1fr 1fr;
-  border-bottom: 1px solid var(--border);
-}
-.ep-header-left {
-  padding: 4rem 4rem 4rem 3rem; border-right: 1px solid var(--border);
-}
-.ep-header-right { padding: 4rem 3rem 4rem 4rem; display: flex; align-items: center; }
-.ep-header-right p { font-size: 0.88rem; font-weight: 300; color: var(--gray); line-height: 1.9; }
-.ep-list { display: flex; flex-direction: column; }
+/* ── EPISODES ── */
+.episodes-section { padding: 5rem 3rem; background: var(--off); text-align: center; }
+.episodes-section .big-heading { margin-bottom: 3rem; }
+.ep-list { display: flex; flex-direction: column; gap: 1rem; max-width: 780px; margin: 0 auto; text-align: left; }
 .ep-row {
-  display: grid; grid-template-columns: 60px 1fr auto;
-  align-items: center; gap: 2rem;
-  padding: 2rem 3rem; border-bottom: 1px solid var(--border);
+  display: grid; grid-template-columns: 70px 1fr auto;
+  align-items: center; gap: 1.5rem;
+  padding: 1.6rem 1.75rem;
+  background: var(--white); border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(23,20,35,0.05);
   text-decoration: none; color: var(--black);
-  transition: background 0.25s;
+  transition: transform 0.25s, box-shadow 0.25s;
 }
-.ep-row:last-child { border-bottom: none; }
-.ep-row:hover { background: var(--off); color: var(--blue); }
-.ep-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; color: var(--gray); text-align: right; }
-.ep-title { font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.3rem; }
-.ep-sub { font-size: 0.78rem; font-weight: 300; color: var(--gray); }
-.ep-arrow { font-size: 1.1rem; color: var(--blue); opacity: 0; transition: opacity 0.2s, transform 0.2s; }
-.ep-row:hover .ep-arrow { opacity: 1; transform: translate(3px,-3px); }
+.ep-row:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(23,20,35,0.08); }
+.ep-num {
+  font-family: var(--font-serif); font-weight: 600; font-size: 1.3rem;
+  color: var(--blue); text-align: center;
+}
+.ep-title { font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.25rem; }
+.ep-sub { font-size: 0.78rem; font-weight: 400; color: var(--gray); }
+.ep-arrow { font-size: 1.1rem; color: var(--coral); }
+.episodes-section .btn-outline.dark { margin-top: 2.5rem; }
 
+/* ── SUBSCRIBE ── */
+.subscribe-section { padding: 5rem 3rem; background: var(--black); text-align: center; }
+.subscribe-section .section-label { color: var(--coral-bright); }
+.subscribe-section .section-label::before { background: var(--coral-bright); }
+.subscribe-sub { font-size: 0.92rem; color: rgba(255,255,255,0.5); margin-top: 1rem; margin-bottom: 3rem; }
+.platform-cards {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; max-width: 640px; margin: 0 auto;
+}
+.platform-card {
+  width: 92px; height: 92px; border-radius: 20px;
+  background: rgba(251,248,242,0.06); border: 1px solid rgba(251,248,242,0.1);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.25s, background 0.25s;
+}
+.platform-card:hover { transform: translateY(-4px); background: rgba(251,248,242,0.12); }
+.platform-card img, .platform-card svg { width: 40px; height: 40px; }
+
+/* ── HOST ── */
 .host-section {
-  display: grid; grid-template-columns: 1fr 1fr;
-  border-bottom: 1px solid var(--border);
+  display: grid; grid-template-columns: 0.8fr 1fr; gap: 4rem;
+  padding: 6rem 3rem; align-items: center;
 }
-.host-photo { overflow: hidden; }
-.host-photo img {
-  width: 100%; height: 100%; object-fit: cover; object-position: top;
-  filter: grayscale(15%); display: block;
-  transition: filter 0.5s, transform 0.7s cubic-bezier(0.22,1,0.36,1);
+.host-photo-wrap {
+  padding: 8px; border-radius: 28px;
+  background: linear-gradient(135deg, var(--blue), var(--coral));
+  max-width: 380px;
 }
-.host-photo:hover img { filter: grayscale(0%); transform: scale(1.03); }
-.host-text {
-  padding: 6rem 3rem 6rem 4rem;
-  display: flex; flex-direction: column; justify-content: center;
-  border-left: 1px solid var(--border);
-}
+.host-photo { border-radius: 22px; overflow: hidden; aspect-ratio: 4/5; }
+.host-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .host-text h2 {
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-  font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 1.5rem;
+  font-family: var(--font-serif); font-style: italic; font-weight: 380;
+  font-size: clamp(2rem, 3.2vw, 2.8rem); line-height: 1.1; margin-bottom: 1.3rem;
 }
-.host-text h2 em { font-style: italic; font-weight: 300; color: var(--blue); }
-.host-text p { font-size: 0.88rem; font-weight: 300; color: var(--gray); line-height: 1.9; margin-bottom: 1rem; }
-.guest-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+.host-text h2 em { font-style: italic; font-weight: 500; color: var(--blue); }
+.host-text p { font-size: 0.92rem; font-weight: 300; color: var(--gray); line-height: 1.9; margin-bottom: 1rem; }
+.host-stats { display: flex; gap: 1rem; margin: 1.75rem 0; flex-wrap: wrap; }
+.host-stat { padding: 1.1rem 1.4rem; border-radius: 16px; }
+.host-stat:nth-child(1) { background: var(--blue-pastel); }
+.host-stat:nth-child(2) { background: var(--coral-pastel); }
+.host-stat:nth-child(3) { background: var(--off); }
+.host-stat-n { font-family: var(--font-serif); font-weight: 600; font-size: 1.5rem; display: block; }
+.host-stat-l { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray); }
+.guest-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .guest-tag {
-  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  border: 1.5px solid var(--blue); color: var(--blue); padding: 0.35rem 0.7rem;
+  font-size: 0.7rem; font-weight: 500; color: var(--gray);
+  border: 1px solid var(--border); border-radius: 999px; padding: 0.5rem 0.9rem;
 }
 
 @media (max-width: 900px) {
-  .pod-hero, .ep-header, .host-section { grid-template-columns: 1fr; }
-  .pod-hero { min-height: auto; }
-  .pod-hero-left, .pod-hero-right, .ep-header-left, .ep-header-right, .host-text { padding: 4rem 1.5rem; border-right: none; border-bottom: 1px solid var(--border); }
-  .ep-row { grid-template-columns: 40px 1fr; padding: 1.5rem; }
-  .ep-arrow { display: none; }
-  .host-section { grid-template-columns: 1fr; }
-  .host-photo { height: 60vw; }
-  .host-text { border-left: none; border-top: 1px solid var(--border); }
+  .hero-content { padding: 0 1.5rem 2.5rem; }
+  .intro-section, .episodes-section, .subscribe-section { padding: 3.5rem 1.5rem; }
+  .mosaic-row { gap: 1rem; }
+  .photo-cell, .photo-cell:nth-of-type(2) { width: 150px; }
+  .host-section { grid-template-columns: 1fr; padding: 3.5rem 1.5rem; gap: 2rem; }
+  .host-photo-wrap { margin: 0 auto; }
 }
 </style>
 </head>
 <body>
 
-<div class="cursor" id="cur"></div>
-<div class="cursor-ring" id="curRing"></div>
 <nav class="nav" id="nav">
-  <a href="index.html" class="nav-logo">HAMMER<span>&amp;</span>CO.</a>
+  <a href="index.html" class="nav-logo">Hammer<span>&amp;</span>Co.</a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
@@ -337,97 +323,119 @@ img { display: block; max-width: 100%; }
   <a href="degen-mode.html" class="nav-degen">Degen Mode 🔥</a>
 </nav>
 
-<section class="pod-hero">
-  <div class="pod-hero-left">
-    <div class="pod-label reveal">The Podcast</div>
-    <h1 class="reveal d1">Beyond<br>the <em>Code</em></h1>
-    <p class="reveal d2">Conversations at the frontier of crypto law, blockchain regulation, DeFi compliance, and Web3 policy — for the founders, builders, and investors shaping the industry.</p>
-    <div class="reveal d3">
-      <a href="https://twitter.com/byndthecode" target="_blank" style="font-family:var(--font);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:var(--blue);color:var(--white);padding:1rem 2rem;text-decoration:none;display:inline-block">Follow @byndthecode →</a>
-    </div>
-  </div>
-  <div class="pod-hero-right">
-    <div class="waveform reveal">
-      <div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div>
-      <div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div>
-      <div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div>
-      <div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div>
-    </div>
-    <div class="pod-stats reveal d1">
-      <div class="pod-stat">
-        <div class="pod-stat-n">100+</div>
-        <div class="pod-stat-l">Episodes published<br>and counting</div>
-      </div>
-      <div class="pod-stat">
-        <div class="pod-stat-n">3.5+</div>
-        <div class="pod-stat-l">Years running —<br>one of the longest-running crypto law shows</div>
-      </div>
-      <div class="pod-stat">
-        <div class="pod-stat-n">🏆</div>
-        <div class="pod-stat-l">First Read sponsor<br>Code: <b style="color:var(--white)">BYNDTHECODE10</b></div>
-      </div>
-    </div>
-    <div class="platform-links reveal d2">
-      <a href="https://podcasts.apple.com" target="_blank" class="platform-link">Apple Podcasts <span>↗</span></a>
-      <a href="https://open.spotify.com" target="_blank" class="platform-link">Spotify <span>↗</span></a>
-      <a href="https://www.youtube.com/@byndthecode" target="_blank" class="platform-link">YouTube <span>↗</span></a>
-      <a href="https://twitter.com/byndthecode" target="_blank" class="platform-link">Twitter / X <span>↗</span></a>
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-photo" src="images/podcast-hero.svg" alt="Beyond the Code — Yitzy Hammer in the studio">
+  <div class="hero-photo-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-tagline reveal">The unfiltered legal &amp; regulatory world of crypto, web3 &amp; emerging tech.</p>
+    <div class="hero-ctas reveal d1">
+      <a href="https://beyondthecode.fm/episodes.html" target="_blank" class="btn-blue">All Episodes →</a>
+      <a href="#subscribe" class="btn-outline">Subscribe Free</a>
     </div>
   </div>
 </section>
 
-<section class="ep-section">
-  <div class="ep-header">
-    <div class="ep-header-left">
-      <div class="pod-label reveal" style="color:var(--blue);display:flex;align-items:center;gap:0.6rem;margin-bottom:1.5rem;font-size:0.65rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase">
-        <span style="width:24px;height:1px;background:var(--blue);display:block"></span>Featured Episodes
-      </div>
-      <h2 class="reveal d1" style="font-size:clamp(2rem,3.5vw,3.2rem);font-weight:800;letter-spacing:-0.035em;line-height:1">Conversations<br>that <em style="font-style:italic;font-weight:300;color:var(--blue)">matter.</em></h2>
-    </div>
-    <div class="ep-header-right">
-      <p class="reveal d1">From securities law to NFT IP, DeFi regulation to DAO governance — every episode cuts through the noise to give you the legal clarity you need to build and invest with confidence.</p>
-    </div>
+<div class="wave" style="background:var(--black)">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,50 C360,120 1080,-20 1440,50 L1440,100 L0,100 Z" fill="var(--white)"/></svg>
+</div>
+
+<!-- INTRO -->
+<section class="intro-section">
+  <div class="section-label reveal">The Podcast</div>
+  <h2 class="big-heading reveal d1">On <em>Beyond the Code</em>, Yitzy Hammer goes backstage with the founders, regulators, and legal minds shaping the frontier of crypto and emerging tech.</h2>
+  <p class="reveal d2">Each conversation digs into two things: the origin story that got them here, and the hard questions no one has clean answers to yet — where the technology is actually heading, who's writing the rules, and what it takes to build responsibly when the ground keeps shifting.</p>
+  <p class="reveal d3">Over 100 episodes in, it's become a home for the people actually building, regulating, and enforcing the future of digital assets.</p>
+  <div class="mosaic-row reveal d4">
+    <div class="photo-cell-wrap"><div class="photo-cell"><img src="images/podcast-mosaic-1.jpg" alt="Beyond the Code at a crypto conference"></div></div>
+    <div class="photo-cell-wrap"><div class="photo-cell"><img src="images/podcast-mosaic-2.jpg" alt="Beyond the Code recording live at Building Blocks 25"></div></div>
+    <div class="photo-cell-wrap"><div class="photo-cell"><img src="images/podcast-mosaic-3.jpg" alt="Beyond the Code at the DLT Law booth"></div></div>
   </div>
-  <div class="ep-list">
-    <a href="https://podcasts.apple.com/in/podcast/58-yitzy-hammer-samuel-goldfaden-the-future-of/id1578287932?i=1000576186326" target="_blank" class="ep-row reveal">
-      <span class="ep-num">Ep. 58</span>
+</section>
+
+<!-- EPISODES -->
+<section class="episodes-section">
+  <div class="section-label reveal">Fresh Off The Mic</div>
+  <h2 class="big-heading reveal d1">Popular <em>Episodes.</em></h2>
+  <div class="ep-list reveal d2">
+    <a href="https://podcasts.apple.com/in/podcast/58-yitzy-hammer-samuel-goldfaden-the-future-of/id1578287932?i=1000576186326" target="_blank" class="ep-row">
+      <span class="ep-num">58</span>
       <div>
-        <div class="ep-title">The Future of NFTs & Securities Laws</div>
+        <div class="ep-title">The Future of NFTs &amp; Securities Laws</div>
         <div class="ep-sub">With Samuel Goldfaden · NFT NYC breakdown</div>
       </div>
       <span class="ep-arrow">↗</span>
     </a>
-    <a href="https://www.youtube.com/live/OueizItYnoU?feature=share" target="_blank" class="ep-row reveal d1">
+    <a href="https://www.youtube.com/live/OueizItYnoU?feature=share" target="_blank" class="ep-row">
       <span class="ep-num">AMA</span>
       <div>
         <div class="ep-title">Whale Coin Talk with Yitzy Hammer</div>
-        <div class="ep-sub">YouTube Live · Crypto trading & legal</div>
+        <div class="ep-sub">YouTube Live · Crypto trading &amp; legal</div>
       </div>
       <span class="ep-arrow">↗</span>
     </a>
-    <a href="https://twitter.com/byndthecode" target="_blank" class="ep-row reveal d2">
-      <span class="ep-num">New</span>
+    <a href="https://beyondthecode.fm/episodes.html" target="_blank" class="ep-row">
+      <span class="ep-num">100+</span>
       <div>
-        <div class="ep-title">New episodes drop regularly</div>
-        <div class="ep-sub">Subscribe on your platform of choice to stay up to date</div>
+        <div class="ep-title">Browse the full episode archive</div>
+        <div class="ep-sub">Every conversation, on beyondthecode.fm</div>
       </div>
       <span class="ep-arrow">↗</span>
+    </a>
+  </div>
+  <div>
+    <a href="https://beyondthecode.fm/episodes.html" target="_blank" class="btn-outline dark">View All Episodes →</a>
+  </div>
+</section>
+
+<div class="wave" style="background:var(--off)">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,100 C 120,20 240,20 360,100 C 480,20 600,20 720,100 C 840,20 960,20 1080,100 C 1200,20 1320,20 1440,100 L1440,100 L0,100 Z" fill="var(--black)"/></svg>
+</div>
+
+<!-- SUBSCRIBE -->
+<section class="subscribe-section" id="subscribe">
+  <div class="section-label reveal">Tune In</div>
+  <h2 class="big-heading on-dark reveal d1">Subscribe on Your <em>Favorite Platform.</em></h2>
+  <p class="subscribe-sub reveal d2">New episodes every week</p>
+  <div class="platform-cards reveal d3">
+    <a href="https://podcasts.apple.com/il/podcast/beyond-the-code/id1673598418" target="_blank" class="platform-card" title="Apple Podcasts">
+      <img src="images/apple-podcasts.png" alt="Apple Podcasts">
+    </a>
+    <a href="https://open.spotify.com/show/7x77TlOnI7BSz4fnIkhvVs" target="_blank" class="platform-card" title="Spotify">
+      <svg viewBox="0 0 24 24" fill="#1DB954"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@byndthecode" target="_blank" class="platform-card" title="YouTube">
+      <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+    </a>
+    <a href="https://twitter.com/byndthecode" target="_blank" class="platform-card" title="X / Twitter">
+      <svg viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.638 5.903-5.638zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a href="https://t.me/byndthecode" target="_blank" class="platform-card" title="Telegram">
+      <svg viewBox="0 0 24 24" fill="#26A5E4"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.19 13.367l-2.965-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.963.192z"/></svg>
     </a>
   </div>
 </section>
 
+<div class="wave" style="background:var(--black)">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,50 C360,120 1080,-20 1440,50 L1440,100 L0,100 Z" fill="var(--white)"/></svg>
+</div>
+
+<!-- HOST -->
 <section class="host-section">
-  <div class="host-photo">
-    <img src="images/podcast_01.jpg" alt="Yitzy Hammer">
+  <div class="host-photo-wrap reveal">
+    <div class="host-photo"><img src="images/podcast_01.jpg" alt="Yitzy Hammer"></div>
   </div>
-  <div class="host-text">
-    <div class="pod-label reveal" style="color:var(--blue);display:flex;align-items:center;gap:0.6rem;margin-bottom:1.5rem;font-size:0.65rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase">
-      <span style="width:24px;height:1px;background:var(--blue);display:block"></span>Your Host
+  <div class="host-text reveal d1">
+    <div class="section-label" style="justify-content:flex-start">Your Host</div>
+    <h2>Yitzy Hammer —<br><em>lawyer, builder, degen.</em></h2>
+    <p>Yitzy brings a unique perspective to every episode: he's not just a legal commentator — he's an active participant in the crypto space, with skin in the game across NFT projects, DAOs, and Web3 initiatives.</p>
+    <p>That means conversations go beyond surface-level legal takes. Yitzy and his guests get into the real issues — the grey areas, the regulatory uncertainty, the things that keep founders up at night.</p>
+    <div class="host-stats">
+      <div class="host-stat"><span class="host-stat-n">100+</span><span class="host-stat-l">Episodes</span></div>
+      <div class="host-stat"><span class="host-stat-n">3.5+</span><span class="host-stat-l">Years On Air</span></div>
+      <div class="host-stat"><span class="host-stat-n">13+</span><span class="host-stat-l">Years With Founders</span></div>
     </div>
-    <h2 class="reveal d1">Yitzy Hammer —<br>lawyer, <em>builder, degen.</em></h2>
-    <p class="reveal d2">Yitzy brings a unique perspective to every episode: he's not just a legal commentator — he's an active participant in the crypto space, with skin in the game across NFT projects, DAOs, and Web3 initiatives.</p>
-    <p class="reveal d3">That means conversations go beyond surface-level legal takes. Yitzy and his guests get into the real issues — the grey areas, the regulatory uncertainty, the things that keep founders up at night.</p>
-    <div class="guest-tags reveal d4">
+    <div class="guest-tags">
       <span class="guest-tag">SEC Commissioner Hester Peirce</span>
       <span class="guest-tag">Samuel Goldfaden</span>
       <span class="guest-tag">Whale Coin Talk</span>
@@ -436,11 +444,10 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
-
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <span class="footer-logo">HAMMER<span>&amp;</span>CO.</span>
+      <span class="footer-logo">Hammer<span>&amp;</span>Co.</span>
       <p>Personal legal advisory for founders and entrepreneurs across hi-tech and emerging technology, including blockchain and crypto.</p>
     </div>
     <div class="footer-col">
@@ -468,21 +475,8 @@ img { display: block; max-width: 100%; }
   </div>
 </footer>
 <script>
-// cursor
-const cur = document.getElementById('cur');
-const ring = document.getElementById('curRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
-function animRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); }
-animRing();
-document.querySelectorAll('a,button,.hover-target').forEach(el => {
-  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
-});
-// nav scroll
 const nav = document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20));
-// reveal on scroll
 const io = new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}
 }),{threshold:0.1});
